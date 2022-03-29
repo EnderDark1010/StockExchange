@@ -1,11 +1,10 @@
 # StockExchangeGame
 # Description
-This project is basically just a custom implementation of a stock market.
-Stocks can be bought and sold.
-Stocks have a tendency for their price going up or down.
-You always have the option to wait a few days(by executing a command) which will change all the stocks prices.
-
-
+This project is basically just a custom implementation of a stock market.<br>
+Stocks can be bought and sold.<br>
+Stocks have a tendency for their price going up or down.<br>
+You always have the option to wait a few days(by executing a command) which will change all the stocks prices.<br>
+After the user decides to quit, the program will generate diagrams of the price changes of the stocks.
 
 # Use Cases
 

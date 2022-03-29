@@ -1,7 +1,11 @@
 # StockExchangeGame
-# Documentation LB2
+# Description
+This project is basically just a custom implementation of a stock market.
+Stocks can be bought and sold.
+Stocks have a tendency for their price going up or down.
+You always have the option to wait a few days(by executing a command) which will change all the stocks prices.
 
-Manuel Andres
+
 
 # Use Cases
 

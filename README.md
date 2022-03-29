@@ -26,12 +26,12 @@ Manuel Andres
 | Post-condition | The Stocks values has changed X times |
 | Exceptions | None |
 
-![](RackMultipart20220329-4-1nsfxyo_html_8842a75d4e8f7180.png)
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/ucd.png)
 
 # CRC Cards
 
-![](RackMultipart20220329-4-1nsfxyo_html_f900871ea35cb010.png)
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/crcc.png)
 
 # Domain Model
 
-![](RackMultipart20220329-4-1nsfxyo_html_3c79f7eeea292924.png)
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/ucd.png)

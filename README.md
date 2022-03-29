@@ -26,6 +26,8 @@ Manuel Andres
 | Post-condition | The Stocks values has changed X times |
 | Exceptions | None |
 
+# Use case diagram
+
 ![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/ucd.png)
 
 # CRC Cards
@@ -34,4 +36,4 @@ Manuel Andres
 
 # Domain Model
 
-![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/ucd.png)
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/dm.png)

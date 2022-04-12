@@ -40,3 +40,7 @@ After the user decides to quit, the program will generate diagrams of the price 
 # Domain Model
 
 ![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/dm.png)
+
+# Class Diagram
+
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/CD.jpg)

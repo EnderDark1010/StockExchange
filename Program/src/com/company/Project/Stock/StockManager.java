@@ -72,11 +72,14 @@ public class StockManager {
     }
 
     public boolean checkIfBuyable(double money, String selectedStock, int numOfSelectedStock) {
-        if (money < calculatePrice(selectedStock,numOfSelectedStock)) {
-            return false;
-        } else {
-            return true;
+        if(checkIfStockExists(selectedStock)){
+            if (money < calculatePrice(selectedStock,numOfSelectedStock)) {
+                return false;
+            } else {
+                return true;
+            }
         }
+        return false;
     }
 
     public double calculatePrice(String selectedStock, int numOfSelectedStock) {

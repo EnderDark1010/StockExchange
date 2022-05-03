@@ -24,8 +24,8 @@ import java.util.Stack;
 
 public class Draw {
 
-    private static final Color COLOR_BACKGROUND = new Color(100, 100, 100);
-    private static final Color COLOR_SEPARATOR = new Color(255, 100, 0);
+    private static final Color COLOR_BACKGROUND = new Color(88, 90, 94);
+    private static final Color COLOR_SEPARATOR = new Color(243, 219, 206, 196);
     private static final int SEPARATOR_LINE_OCCURRENCES = 20;
 
 
@@ -35,7 +35,7 @@ public class Draw {
             HashMap<String, Color> colorList = new HashMap<>();
             String fileNamePrefix = getName();
             File f = new File(fileNamePrefix + ".png");
-            int height = ((int) sm.getObserver().getHighestPriceRecord());
+            int height = ((int) sm.getObserver().getHighestPriceRecorded());
             int width = sm.getObserver().getNumOfUpdates() * 3;
             BufferedImage bufferedImage = new BufferedImage(
                     width,
@@ -67,7 +67,7 @@ public class Draw {
                 g2d.setColor(c);
                 int currentWidthPosition = width;
                 int lastWidthPosition = width;
-                double currentValue = priceHistory.pop();
+                long currentValue = Math.round(priceHistory.pop());
                 int convertedCurrentValue = ((int) currentValue);
                 int lastValue = 0;
                 while (priceHistory.size() != 0) {
@@ -78,7 +78,7 @@ public class Draw {
                     lastWidthPosition = currentWidthPosition;
                     currentWidthPosition -= 3;
                     lastValue = convertedCurrentValue;
-                    currentValue = priceHistory.pop();
+                    currentValue = Math.round(priceHistory.pop());
                     convertedCurrentValue = ((int) currentValue);
                 }
 
@@ -87,7 +87,7 @@ public class Draw {
             //write img
             bufferedImage = flipVertically(bufferedImage);
             ImageIO.write(bufferedImage, "png", f);
-            writeInfoText(fileNamePrefix,colorList);
+            writeInfoText(fileNamePrefix, colorList, sm.getObserver().getHighestPriceRecorded(), sm.getObserver().getLowestPriceRecorded());
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -117,18 +117,21 @@ public class Draw {
         return new Color(r, g, b);
     }
 
-    private static void writeInfoText(String filePrefix,HashMap<String,Color> stockColorMap) {
-        File f = new File(filePrefix+".txt");
+    private static void writeInfoText(String filePrefix, HashMap<String, Color> stockColorMap, double highestValue, double lowestValue) {
+        File f = new File(filePrefix + ".txt");
         String text = "This file contains the Stock colors,\n" +
-                "so it defines which stock has which color\n\n";
-        for (Map.Entry<String,Color> set:stockColorMap.entrySet())  {
-            text+=set.getKey() + " RGB: " + set.getValue().getRed()+", "+set.getValue().getGreen()+", "+set.getValue().getBlue()+"\n";
+                "so it defines which stock has which color\n\n" +
+                "Highest Price(All Stocks): " + highestValue +
+                "Lowest Price(All Stocks): "+lowestValue+"\n\n";
+        for (Map.Entry<String, Color> set : stockColorMap.entrySet()) {
+            text += set.getKey() + " RGB: " + set.getValue().getRed() + ", " + set.getValue().getGreen() + ", " + set.getValue().getBlue() + "\n";
         }
         try {
             FileWriter fw = new FileWriter(f);
             fw.write(text);
             fw.close();
-        }catch (IOException e){}
+        } catch (IOException e) {
+        }
 
     }
 

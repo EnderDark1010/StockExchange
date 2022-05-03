@@ -1,0 +1,17 @@
+This file contains the Stock colors,
+so it defines which stock has which color
+
+Highest Price(All Stocks): 1059.5019422575476Lowest Price(All Stocks): 0.0
+
+LBKG RGB: 151, 209, 111
+OEBA RGB: 198, 241, 188
+NAXK RGB: 145, 229, 97
+ISBI RGB: 112, 57, 131
+VRBC RGB: 219, 222, 136
+KCAO RGB: 238, 156, 236
+XUTU RGB: 55, 225, 233
+PNCG RGB: 135, 81, 79
+NKQC RGB: 150, 243, 235
+UBXW RGB: 114, 244, 62
+ZTWT RGB: 116, 240, 93
+MPWO RGB: 63, 234, 190

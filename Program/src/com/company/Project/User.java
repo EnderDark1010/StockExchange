@@ -82,6 +82,10 @@ public class User {
                 System.out.println("The stock does not exist");
                 selectedStock = "";
             }
+            if(sm.checkIfBuyable(money,selectedStock,1)){
+                System.out.println("You do not have the money to buy this stock");
+                selectedStock = "";
+            }
         } while (selectedStock.equals(""));
 
         System.out.println("Enter how many times do you want to buy that stock(max: " + calcMaxBuyable(selectedStock,sm)+")");

@@ -1,8 +1,6 @@
 package com.company;
 
-import com.sun.security.jgss.GSSUtil;
-
-import java.util.Scanner;
+import com.company.Project.Simulation;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Project;
 /*==============================================================
 Author: SafeScanner
 Datum:  
@@ -25,8 +25,5 @@ public class SafeScanner {
     }
     public String nextString(){
         return scan.nextLine();
-    }
-    public void next(){
-        scan.nextLine();
     }
 }

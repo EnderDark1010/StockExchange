@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Project.Stock;
 /*==============================================================
 Author: Memento
 Datum:  
@@ -6,8 +6,7 @@ ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Factory.StockFactory;
-import com.company.Observer.Observer;
+import com.company.Project.Observer.Observer;
 
 import java.util.HashMap;
 import java.util.Stack;
@@ -40,8 +39,8 @@ public class StockManager {
                 memory.put(s, new Stack<Double>());
             }
             memory.get(s).push(s.getValue());
-            o.update();
         }
+        o.update();
     }
 
     public void printStocksInPriceRange(double start, double end) {
@@ -82,5 +81,22 @@ public class StockManager {
 
     public double calculatePrice(String selectedStock, int numOfSelectedStock) {
     return getStock(selectedStock).getValue() * numOfSelectedStock;
+    }
+
+    public void printAllStocks() {
+        for (Stock s : stocks.values()) {
+                System.out.println(s.getName() + ": " + s.getValue());
+        }
+    }
+    public void addStock(Stock s){
+        stocks.put(s.getName(),s);
+    }
+
+    public Observer getObserver() {
+        return o;
+    }
+
+    public HashMap<Stock, Stack<Double>> getMemory() {
+        return memory;
     }
 }

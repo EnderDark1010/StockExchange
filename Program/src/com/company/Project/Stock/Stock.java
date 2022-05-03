@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Project.Stock;
 /*==============================================================
 Author: Stock
 Datum:  
@@ -6,7 +6,7 @@ ProjektName:    Stock
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Observer.Observer;
+import com.company.Project.Observer.Observer;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.company.Factory;
+package com.company.Project.Stock;
 /*==============================================================
 Author: StockFactory
 Datum:  
@@ -6,8 +6,8 @@ ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Observer.Observer;
-import com.company.Stock;
+import com.company.Project.Observer.Observer;
+import com.company.Project.Stock.Stock;
 
 import java.util.ArrayList;
 import java.util.Random;

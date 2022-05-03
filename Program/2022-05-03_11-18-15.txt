@@ -1,0 +1,15 @@
+This file contains the Stock colors,
+so it defines which stock has which color
+
+IHGJ RGB: 242, 139, 117
+IWXL RGB: 136, 157, 58
+KMFV RGB: 180, 166, 250
+QIIU RGB: 203, 190, 172
+WRWG RGB: 215, 182, 190
+XJIS RGB: 145, 120, 78
+BOHT RGB: 60, 124, 186
+PZIN RGB: 45, 253, 132
+JITN RGB: 160, 75, 251
+QWWN RGB: 191, 130, 113
+SLFE RGB: 164, 167, 116
+IKQK RGB: 218, 105, 175

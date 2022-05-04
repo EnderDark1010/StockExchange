@@ -75,6 +75,7 @@ public class User {
         do {
             System.out.println("Enter the Name of the stock that you want to buy!(0 to quit)");
             selectedStock = scan.nextString();
+            selectedStock = selectedStock.toUpperCase();
             if(selectedStock.equals("0")){
                 return;
             }
@@ -82,7 +83,7 @@ public class User {
                 System.out.println("The stock does not exist");
                 selectedStock = "";
             }
-            if(sm.checkIfBuyable(money,selectedStock,1)){
+            if(!sm.checkIfBuyable(money,selectedStock,1)){
                 System.out.println("You do not have the money to buy this stock");
                 selectedStock = "";
             }

@@ -41,6 +41,6 @@ After the user decides to quit, the program will generate diagrams of the price 
 
 ![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/dm.png)
 
-# Class Diagram
+# Class Diagram(Main Application)
 
-![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/CD.jpg)
+![](https://github.com/EnderDark1010/StockExchange/blob/main/picsForReadMe/CD2.png)

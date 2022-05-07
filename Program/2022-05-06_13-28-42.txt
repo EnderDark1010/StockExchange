@@ -1,0 +1,17 @@
+This file contains the Stock colors,
+so it defines which stock has which color
+
+Highest Price(All Stocks): 3786.512586361091Lowest Price(All Stocks): 0.0
+
+AAUQ RGB: 137, 85, 68
+HVXP RGB: 119, 190, 217
+RGUC RGB: 105, 197, 232
+DADA RGB: 254, 48, 155
+ZFJJ RGB: 202, 55, 241
+KSEH RGB: 174, 203, 127
+DSNY RGB: 162, 254, 197
+FDZG RGB: 193, 154, 47
+IDLP RGB: 143, 216, 166
+BCSC RGB: 182, 206, 159
+LZIH RGB: 219, 146, 96
+IOYO RGB: 237, 70, 79

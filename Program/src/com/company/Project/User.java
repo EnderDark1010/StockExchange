@@ -13,7 +13,6 @@ import com.company.Project.Stock.StockManager;
 import java.util.HashMap;
 
 
-
 public class User {
     //Stock Name, number of the stocks held
     private HashMap<String, Integer> stocks = new HashMap<>();
@@ -76,37 +75,37 @@ public class User {
             System.out.println("Enter the Name of the stock that you want to buy!(0 to quit)");
             selectedStock = scan.nextString();
             selectedStock = selectedStock.toUpperCase();
-            if(selectedStock.equals("0")){
+            if (selectedStock.equals("0")) {
                 return;
             }
             if (!sm.checkIfStockExists(selectedStock)) {
                 System.out.println("The stock does not exist");
                 selectedStock = "";
             }
-            if(!sm.checkIfBuyable(money,selectedStock,1)){
+            if (!sm.checkIfBuyable(money, selectedStock, 1)) {
                 System.out.println("You do not have the money to buy this stock");
                 selectedStock = "";
             }
         } while (selectedStock.equals(""));
 
-        System.out.println("Enter how many times do you want to buy that stock(max: " + calcMaxBuyable(selectedStock,sm)+")");
+        System.out.println("Enter how many times do you want to buy that stock(max: " + calcMaxBuyable(selectedStock, sm) + ")");
         numOfSelectedStock = scan.nextInt();
         if (sm.checkIfBuyable(money, selectedStock, numOfSelectedStock)) {
-            buyStock(sm,selectedStock, numOfSelectedStock);
+            buyStock(sm, selectedStock, numOfSelectedStock);
         } else {
             System.out.println("You don't have enough money to but this stock in that amount");
         }
     }
 
-    public void buyStock(StockManager sm,String selectedStock, int numOfSelectedStock) {
-        if(numOfSelectedStock !=0 && (sm.calculatePrice(selectedStock, numOfSelectedStock))<=money){
+    public void buyStock(StockManager sm, String selectedStock, int numOfSelectedStock) {
+        if (numOfSelectedStock != 0 && (sm.calculatePrice(selectedStock, numOfSelectedStock)) <= money) {
             addStocks(selectedStock, numOfSelectedStock);
             money = money - sm.calculatePrice(selectedStock, numOfSelectedStock);
         }
     }
 
-    public void sellStock(StockManager sm,String selectedStock, int numOfSelectedStock){
-        removeStock(selectedStock,numOfSelectedStock);
+    public void sellStock(StockManager sm, String selectedStock, int numOfSelectedStock) {
+        removeStock(selectedStock, numOfSelectedStock);
         money = money + sm.calculatePrice(selectedStock, numOfSelectedStock);
 
     }
@@ -118,10 +117,10 @@ public class User {
         stocks.put(selectedStock, stocks.get(selectedStock) + numOfSelectedStock);
     }
 
-    private void removeStock(String selectedStock, int numOfSelectedStock){
-        if(stocks.containsKey(selectedStock)){
-            stocks.put(selectedStock,stocks.get(selectedStock).intValue()-numOfSelectedStock);
-            if(stocks.get(selectedStock) <=0){
+    private void removeStock(String selectedStock, int numOfSelectedStock) {
+        if (stocks.containsKey(selectedStock)) {
+            stocks.put(selectedStock, stocks.get(selectedStock).intValue() - numOfSelectedStock);
+            if (stocks.get(selectedStock) <= 0) {
                 stocks.remove(selectedStock);
             }
         }
@@ -131,25 +130,26 @@ public class User {
         SafeScanner scan = new SafeScanner();
         String stockToSell;
         int numToSell = 0;
-
+        boolean cont = true;
         printOwnedStocks(sm);
         System.out.println("Which stock do you want to sell?(enter 0 to quit)");
-        do{
-         stockToSell = scan.nextString();
-            System.out.println("Case 1:" + (sm.checkIfStockExists(stockToSell) && hasMinStocksOf(stockToSell,1)));
-            System.out.println("Case 2:" + (stockToSell.equals("0")==false));
-            if((sm.checkIfStockExists(stockToSell) && hasMinStocksOf(stockToSell,1)) ==false){
-                System.out.println("Error. Following Problems occured:\n"+
+        do {
+            stockToSell = scan.nextString().toUpperCase();
+            if (stockToSell.equals("0")) {
+                cont = false;
+            } else if ((sm.checkIfStockExists(stockToSell) && hasMinStocksOf(stockToSell, 1)) == false) {
+                System.out.println("Error. Following Problems occured:\n" +
                         "The stock name you entered does not exist or you are not in possesion of this stock");
+            }else if(sm.checkIfStockExists(stockToSell) && hasMinStocksOf(stockToSell, 1)){
+                cont=false;
             }
-        }while ((sm.checkIfStockExists(stockToSell) && hasMinStocksOf(stockToSell,1)) ==false || (stockToSell.equals("0")));
-        System.out.println("finished loop");
-        if(sm.checkIfStockExists(stockToSell)){
-            System.out.println("How many do you want to sell?(max: "+stocks.get(stockToSell)+ ")");
-            do{
-              numToSell=scan.nextInt();
-            }while (hasMinStocksOf(stockToSell,numToSell)==false);
-            sellStock(sm,stockToSell,numToSell);
+        } while (cont);
+        if (sm.checkIfStockExists(stockToSell)) {
+            System.out.println("How many do you want to sell?(max: " + stocks.get(stockToSell) + ")");
+            do {
+                numToSell = scan.nextInt();
+            } while (hasMinStocksOf(stockToSell, numToSell) == false);
+            sellStock(sm, stockToSell, numToSell);
         }
     }
 
@@ -164,11 +164,11 @@ public class User {
             if (stock != null) {
                 System.out.println(
                         "----------\n" +
-                        "|Name: " + stock.getName() + "\n"+
-                        "|Current Value: " + stock.getValue() +"\n"+
-                        "|Num: " + stocks.get(s) +"\n"+
-                        "|Total Current value: " + stock.getValue() * stocks.get(s) +"\n"+
-                        "----------");
+                                "|Name: " + stock.getName() + "\n" +
+                                "|Current Value: " + stock.getValue() + "\n" +
+                                "|Num: " + stocks.get(s) + "\n" +
+                                "|Total Current value: " + stock.getValue() * stocks.get(s) + "\n" +
+                                "----------");
             }
         }
     }
@@ -185,16 +185,16 @@ public class User {
         return totalValue;
     }
 
-    private boolean hasMinStocksOf(String s,int minStocks){
-        if(stocks.containsKey(s)){
+    private boolean hasMinStocksOf(String s, int minStocks) {
+        if (stocks.containsKey(s)) {
             return stocks.get(s) >= minStocks;
         }
         return false;
     }
 
-    private int calcMaxBuyable(String selectedStock, StockManager sm){
-       Stock s = sm.getStock(selectedStock);
-       return (int) (money/s.getValue());
+    private int calcMaxBuyable(String selectedStock, StockManager sm) {
+        Stock s = sm.getStock(selectedStock);
+        return (int) (money / s.getValue());
     }
 
     public double getMoney() {

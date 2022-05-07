@@ -1,4 +1,4 @@
-package com.company.Project.Drawing;
+package com.company.Project.BonusAndUtillity;
 /*==============================================================
 Author: Draw
 Datum:  
@@ -6,8 +6,8 @@ ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Project.Stock.Stock;
-import com.company.Project.Stock.StockManager;
+import com.company.Project.Game.Stock;
+import com.company.Project.Game.StockManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,13 +24,12 @@ import java.util.Stack;
 
 public class Draw {
 
-    private static final Color COLOR_BACKGROUND = new Color(88, 90, 94);
-    private static final Color COLOR_SEPARATOR = new Color(243, 219, 206, 196);
+    private static final Color COLOR_BACKGROUND = new Color(0, 0, 0);
+    private static final Color COLOR_SEPARATOR = new Color(168, 168, 168, 196);
     private static final int SEPARATOR_LINE_OCCURRENCES = 20;
 
 
     public static void draw(StockManager sm) {
-
         try {
             HashMap<String, Color> colorList = new HashMap<>();
             String fileNamePrefix = getName();
@@ -59,7 +58,6 @@ public class Draw {
 
             //Draws stock prices
             for (Map.Entry<Stock, Stack<Double>> set : sm.getMemory().entrySet()) {
-
                 Stock s = set.getKey();
                 Stack<Double> priceHistory = set.getValue();
                 Color c = generateColor();
@@ -122,7 +120,8 @@ public class Draw {
         String text = "This file contains the Stock colors,\n" +
                 "so it defines which stock has which color\n\n" +
                 "Highest Price(All Stocks): " + highestValue +
-                "Lowest Price(All Stocks): "+lowestValue+"\n\n";
+                "Lowest Price(All Stocks): " + lowestValue + "\n\n" +
+                "Vertical lines are drawn every "+ SEPARATOR_LINE_OCCURRENCES+" lines";
         for (Map.Entry<String, Color> set : stockColorMap.entrySet()) {
             text += set.getKey() + " RGB: " + set.getValue().getRed() + ", " + set.getValue().getGreen() + ", " + set.getValue().getBlue() + "\n";
         }

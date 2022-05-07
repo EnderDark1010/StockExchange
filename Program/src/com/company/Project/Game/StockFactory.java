@@ -1,13 +1,10 @@
-package com.company.Project.Stock;
+package com.company.Project.Game;
 /*==============================================================
 Author: StockFactory
 Datum:  
 ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
-
-import com.company.Project.Observer.Observer;
-import com.company.Project.Stock.Stock;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,13 +18,23 @@ public class StockFactory {
         this.o = o;
     }
 
+    /**
+     * Generates a stock randomly
+     * @param priceStart min price/value
+     * @param priceEnd max price/value
+     * @return
+     */
     public Stock generateStock(int priceStart, int priceEnd) {
         return new Stock(generateName(), generatePrice(priceStart,priceEnd), o);
     }
 
+    /**
+     * Generates a random name for a stock using 4 letters
+     * @return a randomly generated string
+     */
     private String generateName() {
-        int leftLimit = 97 - 32; // letter 'A' remove - 32 to make it 'a'
-        int rightLimit = 122 - 32; // letter 'Z' remove -32 to make it 'z'
+        int leftLimit = 97 - 32;
+        int rightLimit = 122 - 32;
         int targetStringLength = 4;
         String generatedString = "";
         do {

@@ -1,4 +1,4 @@
-package com.company.Project.Observer;
+package com.company.Project.Game;
 /*==============================================================
 Author: Observer
 Datum:  
@@ -6,23 +6,21 @@ ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Project.Stock.Stock;
-
 import java.util.ArrayList;
 
 public class Observer {
     private ArrayList<Stock> stocks = new ArrayList<>();
     private double highestPriceRecorded = 0;
-    private double lowestPriceRecorded = 0;
+    private double lowestPriceRecorded = -1;
     private int numOfUpdates = 0;
 
-    public void update(){
+    public void update() {
         numOfUpdates++;
-        for(Stock s:stocks){
+        for (Stock s : stocks) {
             s.changeValue();
-            if(s.getValue()>highestPriceRecorded){
-                highestPriceRecorded= s.getValue();
-            }else if(s.getValue()<lowestPriceRecorded){
+            if (s.getValue() > highestPriceRecorded) {
+                highestPriceRecorded = s.getValue();
+            } else if (s.getValue() < lowestPriceRecorded || lowestPriceRecorded==-1) {
                 lowestPriceRecorded = s.getValue();
             }
 

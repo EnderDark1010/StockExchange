@@ -6,22 +6,21 @@ ProjektName:    Program
 Beschreibung: 
 ==============================================================*/
 
-import com.company.Project.Drawing.Draw;
-import com.company.Project.Stock.StockManager;
+import com.company.Project.BonusAndUtillity.Draw;
+import com.company.Project.Game.StockManager;
+import com.company.Project.Game.User;
 
 public class Simulation {
-   private StockManager sm = new StockManager(5, 2, 5);
+   private StockManager sm = StockManager.getInstance();
 
-    //private StockManager sm = new StockManager(1, 0, 0);
     private User user = new User(500);
-    private Draw draw = new Draw();
     public void start() {
         boolean cont = true;
         while (cont) {
             printOptions();
             cont = user.inputController(sm);
         }
-        System.out.println("Please a few seconds!\n" +
+        System.out.println("Please wait a few seconds!\n" +
                 "The program will now generate the stock graphs!");
         Draw.draw(sm);
         System.out.println("finished");
